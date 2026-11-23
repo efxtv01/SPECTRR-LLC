@@ -87,20 +87,28 @@ function initComparisonSlider() {
     updateSliderPosition(e.clientX);
   });
 
-  // Touch Events
+  // Touch Events for Mobile & Tablet with gesture lock
   viewer.addEventListener('touchstart', (e) => {
     isDragging = true;
-    updateSliderPosition(e.touches[0].clientX);
-  }, { passive: true });
+    if (e.cancelable) e.preventDefault();
+    const touch = e.touches[0] || e.changedTouches[0];
+    updateSliderPosition(touch.clientX);
+  }, { passive: false });
 
   window.addEventListener('touchend', () => {
     isDragging = false;
   });
 
+  window.addEventListener('touchcancel', () => {
+    isDragging = false;
+  });
+
   window.addEventListener('touchmove', (e) => {
     if (!isDragging) return;
-    updateSliderPosition(e.touches[0].clientX);
-  }, { passive: true });
+    if (e.cancelable) e.preventDefault();
+    const touch = e.touches[0] || e.changedTouches[0];
+    updateSliderPosition(touch.clientX);
+  }, { passive: false });
 
   // Quick preset mode buttons
   toggleBtns.forEach(btn => {
