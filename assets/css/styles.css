@@ -2316,26 +2316,19 @@ h1, h2, h3, h4, h5, h6 {
     padding: 1.4rem 0.5rem 0.5rem;
   }
 
-  /* PORTFOLIO MOBILE - ALL 5 BUTTONS FULLY VISIBLE IN WRAPPED GRID */
+  /* PORTFOLIO MOBILE */
   .portfolio-filters {
     display: flex;
-    flex-wrap: wrap !important;
     justify-content: center;
-    gap: 0.45rem;
     width: 100%;
-    overflow-x: visible !important;
+    margin-bottom: 2rem;
     padding: 0;
   }
   .port-filter-btn {
-    flex: 1 1 calc(50% - 0.45rem);
-    min-width: 130px;
-    padding: 0.55rem 0.6rem;
-    font-size: 0.78rem;
+    padding: 0.6rem 1.4rem;
+    font-size: 0.85rem;
     text-align: center;
-    white-space: normal;
-  }
-  .port-filter-btn[data-filter="all"] {
-    flex: 1 1 100%;
+    border-radius: 50px;
   }
 
   /* ABOUT MOBILE */
